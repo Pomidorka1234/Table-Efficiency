@@ -8,10 +8,22 @@ class Matrix:
             self.matrix.append([])
             for j in range(self.width):
                 self.matrix[i].append(self.raw[j + i * self.width])
+
+    def add(self, matrix):
+        if (self.width == matrix.width and self.height == matrix.height):
+            for i in range(self.height):
+                for j in range(self.width):
+                    self.matrix[i][j] += matrix.matrix[i][j]
     
-    #def mult(self, matrix):
-        #if (self.width == matrix.height):
-        #    return Matrix(self.height, matrix.width, )
+    def mult(self, matrix):
+        if (self.width == matrix.height):
+            rawData = []
+            for i in range(self.height * matrix.width):
+                sum = 0
+                for j in range(self.width):
+                    sum += self.matrix[i][j] * matrix.matrix[j][i]
+                rawData.append(sum)
+            return Matrix(self.height, matrix.width, rawData)       # sum(x_i[n] * y[n]j)
 
     def getVertex(self, row = -1, column = -1):
         Pos = []
@@ -19,7 +31,6 @@ class Matrix:
             for i in range(self.height):
                 Pos.append(self.matrix[i][column])
             
-
         if row != -1:
             if Pos == []:
                 Pos = self.matrix[row]
@@ -27,12 +38,19 @@ class Matrix:
                 Pos = Pos[row]
         return Pos
 
-
+    def sumVertex(self, row = -1, column = -1):
+        if column == 0:
+            return 'label'
+        sum = 0
+        for i in self.getVertex(row, column):
+            sum += i
+        return sum
 
     def __str__(self):
         matrix = ''
         for i in range(self.height):
             for j in range(self.width):
+                bracket = ''
                 cell = self.matrix[i][j]
                 if i == 0 and j == 0:
                     space = 0
@@ -40,24 +58,40 @@ class Matrix:
                     space = len(str(cell - 1)) - 1
                     if len(str(cell - 1)) != len(str(cell)):
                         space += 1
-                matrix += str(self.matrix[i][j]) + "  " + " " * (len(str(self.matrix[self.height - 1][self.width - 1])) - 1 - space)
+                
+                if i != 0 and (j == 0 or j == self.width - 1):
+                    bracket = '∣  '
+                if i == self.height - 1 and j == 0:
+                    bracket = '⌊  '
+                if i == 0 and j == 0:
+                    bracket = '⌈  '
+                    if self.height == 1:
+                        bracket = '[  '
+                matrix += bracket + str(self.matrix[i][j]) + "  " + " " * (len(str(self.matrix[self.height - 1][self.width - 1])) - 2 - space)
+
+                bracket = ''
+
+                if i != 0 and (j == 0 or j == self.width - 1):
+                    bracket = '∣  '
+                if i == self.height - 1 and j == self.width - 1:
+                    bracket = '⌋'
+                if i == 0 and j == self.width - 1:
+                    bracket = '⌉'
+                    if self.height == 1:
+                        bracket = ']'
+                
+                matrix += bracket
             matrix += '\n'
         return matrix
 
 
 
 class Table:
-    def __init__(self, width ,rawData = ["x0", "x1"]):
-        #try:
+    def __init__(self, width ,rawData = ["x0", "y0"]):
+        try:
             self.label = Matrix(width, int(len(rawData)/width), rawData)
-        #except:
-        #    print("Please provide correct input")
-    
-    def sumVertex(self, vertex = ['column', 0]):
-        sum = 0
-        for i in self.label.getVertex(vertex[0] == vertex[1]):
-            sum += i
-        return sum
+        except:
+            print("Please provide correct input")
 
     def __str__(self):
         table = ""
@@ -72,5 +106,5 @@ class BinaryTable(Table):
         super().__init__(2, rawData)
 
 
-    def Gamma(self, rawData):
+    def Coef(self, rawData):
         return Matrix(1, self.label.height, rawData)
