@@ -1,2 +1,2 @@
 # Table-Efficiency
-Efficiency algorithms for tabled structures (tabled matrixes)
+Efficiency algorithms for tables (table matrices)
