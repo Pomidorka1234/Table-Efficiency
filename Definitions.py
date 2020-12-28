@@ -21,9 +21,9 @@ class Matrix:
             for i in range(self.height * matrix.width):
                 sum = 0
                 for j in range(self.width):
-                    sum += self.matrix[i][j] * matrix.matrix[j][i]
+                    sum += self.matrix[i - int(i/self.width)][j] * matrix.matrix[j][i - int(i/self.width)]
                 rawData.append(sum)
-            return Matrix(self.height, matrix.width, rawData)       # sum(x_i[n] * y[n]j)
+            return Matrix(self.height, matrix.width, rawData)
 
     def getVertex(self, row = -1, column = -1):
         Pos = []
@@ -39,11 +39,13 @@ class Matrix:
         return Pos
 
     def sumVertex(self, row = -1, column = -1):
-        if column == 0:
-            return 'label'
         sum = 0
-        for i in self.getVertex(row, column):
-            sum += i
+        if row >= 0 and column == -1:
+            for cell in self.matrix[row]:
+                sum += cell
+        if row == -1 and column >= 0:
+            for i in range(self.height):
+                sum += self.matrix[i][column]
         return sum
 
     def __str__(self):
@@ -100,7 +102,7 @@ class Table:
         return table
         
 
-class BinaryTable(Table):
+class DualTable(Table):
 
     def __init__(self, rawData = [0, 0]):
         super().__init__(2, rawData)
