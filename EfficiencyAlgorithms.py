@@ -35,14 +35,20 @@ def DualEfficiency(M, table = DFN.DualTable(), iteration = -1):
     if (True):
         DiscreteP = P.mult(G_D).matrix[0][0] + ((tblHeight - 1) * P.matrix[0][0]) / tblHeight
         G_D.matrix[max[1]][0] -= 2
-        #while(iteration != 0):
-            #for i in range(tblHeight):
-                #if P.mult(G_D).matrix[0][0] >= DiscreteP and 
+        while(iteration != 0):
+            for i in range(tblHeight):
+                if P.mult(G_D).matrix[0][0] >= DiscreteP and C.mult(G_D).matrix[0][0] >= 0:
+                    C += 1
+            iteration -= 1
+            
                 
     #==============================================================================================================================================================================
     #The same method but without P deciding the coeficients
     if (False):
         print('')
+    
+    #==============================================================================================================================================================================
+    #The upper point & maximum coeficient method
     
     #==============================================================================================================================================================================
     print("The 𝛤 maximal coeficients and equal digit coeficients: " + "\n" + str(G_max) + "\n" + str(G_D) + "respectively.")
