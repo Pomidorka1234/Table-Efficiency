@@ -28,8 +28,6 @@ def DualEfficiency(M, table = DFN.DualTable(), iteration = -1):
 
     G = table.Coef(dataG)                                       # O(H)
 
-    #So far, O(10H) time complexity (O(H))
-
     #==============================================================================================================================================================================
     #Discrete method for finding most efficient coeficients
     if (True):
@@ -48,7 +46,7 @@ def DualEfficiency(M, table = DFN.DualTable(), iteration = -1):
         print('')
     
     #==============================================================================================================================================================================
-    #The upper point & maximum coeficient method
+    #The upper vector & maximum coeficient method
     
     #==============================================================================================================================================================================
     print("The 𝛤 maximal coeficients and equal digit coeficients: " + "\n" + str(G_max) + "\n" + str(G_D) + "respectively.")
