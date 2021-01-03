@@ -17,24 +17,24 @@ def BinaryEfficiency(M, table = DFN.BinaryTable(), iteration = -1):
         if i != 0:
             if dataG[i] * P.matrix[0][i] > max[0] * P.matrix[0][max[1]]:
                 dataG[max[1]] = 0
-                max = [M/Vert0[i], i]
+                max = [M/dataG[i], i]
             else:
                 dataG[i] = 0
 
-    G_max = table.Coef(data0)                                                # O(H)
+    Λ_max = table.Coef(data0)                                                # O(H)
 
-    G_D = table.Coef(data1)                                                  # O(H)
+    Λ_D = table.Coef(data1)                                                  # O(H)
 
-    G = table.Coef(dataG)                                                    # O(H)
+    Λ = table.Coef(dataG)                                                    # O(H)
 
     #==============================================================================================================================================================================
     #Discrete method for finding most efficient coeficients
     if (True):
-        DiscreteP = P.mult(G_D).matrix[0][0] + ((tblHeight - 1) * P.matrix[0][0]) / tblHeight
-        G_D.matrix[max[1]][0] -= 2
+        DiscreteP = P.mult(Λ_D).matrix[0][0] + ((tblHeight - 1) * P.matrix[0][0]) / tblHeight
+        Λ_D.matrix[max[1]][0] -= 2
         while(iteration != 0):
             for i in range(tblHeight):
-                if P.mult(G_D).matrix[0][0] >= DiscreteP and C.mult(G_D).matrix[0][0] >= 0:
+                if P.mult(Λ_D).matrix[0][0] >= DiscreteP and C.mult(Λ_D).matrix[0][0] >= 0:
                     C += 1
             iteration -= 1
             
@@ -48,8 +48,8 @@ def BinaryEfficiency(M, table = DFN.BinaryTable(), iteration = -1):
     #The upper vector & maximum coeficient method
     
     #==============================================================================================================================================================================
-    print("The 𝛤 maximal coeficients and equal digit coeficients: " + "\n" + str(G_max) + "\n" + str(G_D) + "respectively.")
-    print("The maximal profitable single coeficient: " + "\n" + str(G))
+    print("The Λ maximal coeficients and equal digit coeficients: " + "\n" + str(Λ_max) + "\n" + str(Λ_D) + "respectively.")
+    print("The maximal profitable single coeficient: " + "\n" + str(Λ))
     print(C)
 
     #for i in range(iteration):

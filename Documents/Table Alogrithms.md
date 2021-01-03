@@ -1,4 +1,4 @@
-<body style="background-image: url(Styling/Side%20Style/CoverStyleSide.png); background-repeat: no-repeat; background-size: contain"></body>
+<body style="background-image: url(Styling/Side%20Style/CoverStyleSideTrans.png); background-repeat: no-repeat; background-size: contain"></body>
 
 <style>
     .below-flow {
@@ -35,11 +35,11 @@
 <div style="page-break-after: always"></div>
 
 
-<div id='preface' class='below-flow heading-topic'><hr>Preface</div>
+<div id='topic-0' class='below-flow heading-topic'><hr>Preface</div>
 
 <font class='preface-content' size='5'>Introduction</font>
 
-<div style="page-break-after: always"></div
+<div style="page-break-after: always"></div>
 
 <font class='tribelow-flow' size='5'>Objectives and Requirements</font>
 
@@ -48,8 +48,11 @@
 
 <div class='below-flow heading-topic'><hr>Contents</div>
 
-<font style="position: relative; top: 80px" size='3'>[Preface](#preface) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3</font>
+<font style="position: relative; top: 80px" size='3'>[Preface](#topic-0) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3</font>
 
-<font class='bibelow-flow'>[]</font>
+<font style="position: relative; top: 70px; font-size: 16.09px" size='3'>[Tabled Matrices & Efficient Values](#topic-1) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6</font>
 
 <div style="page-break-after: always"></div>
+
+
+<div id='topic-1' class='below-flow heading-topic'><hr>Tabled Matrices & Efficient Values</div>
