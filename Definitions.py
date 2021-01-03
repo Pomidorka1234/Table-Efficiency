@@ -102,7 +102,7 @@ class Table:
         return table
         
 
-class DualTable(Table):
+class BinaryTable(Table):
 
     def __init__(self, rawData = [0, 0]):
         super().__init__(2, rawData)

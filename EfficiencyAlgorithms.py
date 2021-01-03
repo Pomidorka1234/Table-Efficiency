@@ -2,31 +2,30 @@ import Definitions as DFN
 import math
 
 # Calculate most efficient cost combination from a table for a given maximum cost
-def DualEfficiency(M, table = DFN.DualTable(), iteration = -1):
-    print("The given table: " + "\n" + table.__str__())         # O(H)
-    data0, data1, dataG = [], [], []
+def BinaryEfficiency(M, table = DFN.BinaryTable(), iteration = -1):
+    print("The given table: " + "\n" + table.__str__())                      # O(H)
     tblHeight = table.label.height
-    Vert0 = table.label.getVertex(-1, 0)                        # O(H)
-    Vert1 = table.label.getVertex(-1, 1)                        # O(H)
-    C = DFN.Matrix(table.label.height, 1, Vert0)                # O(H)
-    P = DFN.Matrix(table.label.height, 1, Vert1)                # O(H)
-    sumVert = table.label.sumVertex(-1, 0)                      # O(H)
-    max = [M/Vert0[0], 0]
-    for i in range(tblHeight):                                  # O(H)
-        data0.append(math.floor(M/Vert0[i]))
+    data0, data1, dataG = [], [], []
+    C = DFN.Matrix(table.label.height, 1, table.label.getVertex(-1, 0))      # O(2H)
+    P = DFN.Matrix(table.label.height, 1, table.label.getVertex(-1, 1))      # O(2H)
+    sumVert = C.sumVertex(0, -1)                                             # O(H)
+    max = [M/C.matrix[0][0], 0]
+    for i in range(tblHeight):                                               # O(H)
+        data0.append(math.floor(M/C.matrix[0][i]))
         dataG.append(data0[i])
         data1.append(math.floor(M/sumVert))
         if i != 0:
-            if M/Vert0[i] * table.label.matrix[i][1] >= max[0] * table.label.matrix[max[1]][1]:
+            if dataG[i] * P.matrix[0][i] > max[0] * P.matrix[0][max[1]]:
                 dataG[max[1]] = 0
                 max = [M/Vert0[i], i]
             else:
                 dataG[i] = 0
 
-    G_max = table.Coef(data0)                                   # O(H)
-    G_D = table.Coef(data1)                                     # O(H)
+    G_max = table.Coef(data0)                                                # O(H)
 
-    G = table.Coef(dataG)                                       # O(H)
+    G_D = table.Coef(data1)                                                  # O(H)
+
+    G = table.Coef(dataG)                                                    # O(H)
 
     #==============================================================================================================================================================================
     #Discrete method for finding most efficient coeficients
@@ -59,7 +58,7 @@ def DualEfficiency(M, table = DFN.DualTable(), iteration = -1):
 
 
 # Calculate most efficient cost combination given a dependency table for a given maximum cost
-def DependentDualEfficiency(M, table = DFN.DualTable(), dependent = DFN.DualTable(), iteration = -1):
+def DependentBinaryEfficiency(M, table = DFN.BinaryTable(), dependent = DFN.BinaryTable(), iteration = -1):
     data0, data1 = [], []
 
-DualEfficiency(20000, DFN.DualTable([200, 50, 300, 70, 600, 100, 2000, 500, 2500, 650, 4000, 900]))
+BinaryEfficiency(20000, DFN.BinaryTable([200, 50, 300, 70, 600, 100, 2000, 500, 2500, 650, 4000, 900]), 10)
