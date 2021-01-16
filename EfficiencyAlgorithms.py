@@ -28,9 +28,16 @@ def BinaryEfficiency(M, table = DFN.BinaryTable(), iteration = -1):
     Λ = table.Coef(dataG)                                                    # O(H)
 
     #==============================================================================================================================================================================
+    #The upper vector & maximum coeficient method
+    
+
+    
+    #==============================================================================================================================================================================
+
+    #==============================================================================================================================================================================
     #Discrete method for finding most efficient coeficients
-    if (True):
-        DiscreteP = P.mult(Λ_D).matrix[0][0] + ((tblHeight - 1) * P.matrix[0][0]) / tblHeight
+    if (False):
+        DiscreteP = P.mult(Λ).matrix[0][0] + ((tblHeight - 1) * P.matrix[0][0]) / tblHeight
         Λ_D.matrix[max[1]][0] -= 2
         while(iteration != 0):
             for i in range(tblHeight):
@@ -43,11 +50,6 @@ def BinaryEfficiency(M, table = DFN.BinaryTable(), iteration = -1):
     #The same method but without P deciding the coeficients
     if (False):
         print('')
-    
-    #==============================================================================================================================================================================
-    #The upper vector & maximum coeficient method
-    
-    #==============================================================================================================================================================================
     print("The Λ maximal coeficients and equal digit coeficients: " + "\n" + str(Λ_max) + "\n" + str(Λ_D) + "respectively.")
     print("The maximal profitable single coeficient: " + "\n" + str(Λ))
     print(C)

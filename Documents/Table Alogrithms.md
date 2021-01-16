@@ -1,4 +1,4 @@
-<body style="background-image: url(Styling/Side%20Style/CoverStyleSideTrans.png); background-repeat: no-repeat; background-size: contain"></body>
+<body style="background-image: url(Styling/Forms/Form1.png); background-repeat: no-repeat; background-size: contain"></body>
 
 <style>
     .below-flow {
@@ -55,4 +55,15 @@
 <div style="page-break-after: always"></div>
 
 
-<div id='topic-1' class='below-flow heading-topic'><hr>Tabled Matrices & Efficient Values</div>
+
+<div id='topic-1' class='below-flow heading-topic'><hr>Table Matrices & Efficient Values</div> <br><br>
+
+<div class='below-flow' style="font-size: 18px">
+<div>
+In this work, multiple types of tables will be considered, from the basic ones with two columns which are valued by "cost" and "profit" respectively, usually referred as "Binary Tables" to complex tables with multiple columns, some dependent on the argument and some independent, as such, in binary tables "cost" will be considered the dependent value, dependent on the argument that was chosen to be the maximum cost, more will be explained in the details, before hand, the first table mentioned earlier will be discussed...
+</div> <br>
+<div>
+The tables presented here are a type of matrixes that are structured by first column made up of labels, separated by a vertical line, and the following columns made up of 'attributes' of the corresponding label in a row, for example in binary tables there are 3 columns, the label column and the 2 columns of 'cost' and 'profit'.
+The table look like a usual matrix with a vertical line after the first column
+</div>
+</div>
