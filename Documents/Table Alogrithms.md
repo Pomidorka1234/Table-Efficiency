@@ -54,8 +54,6 @@
 
 <div style="page-break-after: always"></div>
 
-
-
 <div id='topic-1' class='below-flow heading-topic'><hr>Table Matrices & Efficient Values</div> <br><br>
 
 <div class='below-flow' style="font-size: 18px">
@@ -64,6 +62,22 @@ In this work, multiple types of tables will be considered, from the basic ones w
 </div> <br>
 <div>
 The tables presented here are a type of matrixes that are structured by first column made up of labels, separated by a vertical line, and the following columns made up of 'attributes' of the corresponding label in a row, for example in binary tables there are 3 columns, the label column and the 2 columns of 'cost' and 'profit'.
-The table look like a usual matrix with a vertical line after the first column
+The table looks like a usual matrix with a vertical line after the first column
+</div> <br>
+<div style="font-size: 26px">
+
+$$
+\left[\begin{array}{c|cccc}
+l_0 & x_{00} & x_{01} & \cdots & x_{0m}    \\
+l_1 & x_{10} & x_{11} & \cdots & x_{1m}    \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+l_n & x_{n0} & x_{n1} & \cdots & x_{nm}    \\
+\end{array}\right]
+$$
+</div>
+<div>
+In the first section, we will look at the simple table, that is the binary table.
+
+
 </div>
 </div>
