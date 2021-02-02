@@ -1,5 +1,7 @@
 import Definitions as DFN
 import math
+import dataclasses as DC
+import jupyter as JP
 
 # Calculate most efficient cost combination from a table for a given maximum cost
 def BinaryEfficiency(M, table = DFN.BinaryTable(), iteration = -1):
@@ -29,8 +31,14 @@ def BinaryEfficiency(M, table = DFN.BinaryTable(), iteration = -1):
 
     #==============================================================================================================================================================================
     #The upper vector & maximum coeficient method
-    
 
+    efV = [0, 1]
+
+    for i in range(C.width):
+        efCheck = [P.matrix[0][i], C.matrix[0][i]]
+        if (efCheck[0] / efCheck[1] > efV[0] / efV[1]):
+            efV = [P.matrix[0][i], C.matrix[0][i]]
+        
     
     #==============================================================================================================================================================================
 
