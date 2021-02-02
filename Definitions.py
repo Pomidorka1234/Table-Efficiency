@@ -9,21 +9,21 @@ class Matrix:
             for j in range(self.width):
                 self.matrix[i].append(self.raw[j + i * self.width])
 
-    def add(self, matrix):
-        if (self.width == matrix.width and self.height == matrix.height):
+    def add(self, other):
+        if (self.width == other.width and self.height == other.height):
             for i in range(self.height):
                 for j in range(self.width):
-                    self.matrix[i][j] += matrix.matrix[i][j]
+                    self.matrix[i][j] += other.matrix[i][j]
     
-    def mult(self, matrix):
-        if (self.width == matrix.height):
+    def mult(self, other):
+        if (self.width == other.height):
             rawData = []
-            for i in range(self.height * matrix.width):
+            for i in range(self.height * other.width):
                 sum = 0
                 for j in range(self.width):
-                    sum += self.matrix[i - int(i/self.width)][j] * matrix.matrix[j][i - int(i/self.width)]
+                    sum += self.matrix[i - int(i/self.width)][j] * other.matrix[j][i - int(i/self.width)]
                 rawData.append(sum)
-            return Matrix(self.height, matrix.width, rawData)
+            return Matrix(self.height, other.width, rawData)
 
     def getVertex(self, row = -1, column = -1):
         Pos = []
