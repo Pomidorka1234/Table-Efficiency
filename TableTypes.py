@@ -1,5 +1,8 @@
 class Matrix:
-    def __init__(self, width, height, rawData):
+    """ 
+        Matrix type that is a list * list subset of all it's matrices
+    """
+    def __init__(self, width: int, height: int, rawData: list) -> None:
         self.width = width
         self.height = height
         self.raw = rawData
@@ -48,6 +51,17 @@ class Matrix:
                 sum += self.matrix[i][column]
         return sum
 
+    def nullify(self, row = -1, column = -1):
+        if column != -1:
+            for i in range(self.height):
+                self.matrix[i][column] = None
+            
+        if row != -1:
+            if column == -1:
+                self.matrix[row] = None
+            else:
+                self.matrix[row][column] = None
+
     def __str__(self):
         matrix = ''
         for i in range(self.height):
@@ -61,7 +75,7 @@ class Matrix:
                     if len(str(cell - 1)) != len(str(cell)):
                         space += 1
                 
-                if i != 0 and (j == 0 or j == self.width - 1):
+                if i != 0 and (j == 0):
                     bracket = '∣  '
                 if i == self.height - 1 and j == 0:
                     bracket = '⌊  '
@@ -73,7 +87,7 @@ class Matrix:
 
                 bracket = ''
 
-                if i != 0 and (j == 0 or j == self.width - 1):
+                if i != 0 and (j == self.width - 1):
                     bracket = '∣  '
                 if i == self.height - 1 and j == self.width - 1:
                     bracket = '⌋'
@@ -98,7 +112,11 @@ class Table:
     def __str__(self):
         table = ""
         for i in range(self.label.height):
-            table += 'L' + str(i) + " | " + Matrix(self.label.width, 1, self.label.getVertex(i, -1)).__str__()
+            table += 'L' + str(i) + " |  "
+            for j in range(self.label.width):
+                space = " " * (len(str(self.label.matrix[self.label.height - 1][j])) - len(str(self.label.matrix[i][j])))
+                table += space + str(self.label.matrix[i][j]) + "  "
+            table += '\n'
         return table
         
 
