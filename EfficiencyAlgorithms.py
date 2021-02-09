@@ -3,11 +3,10 @@ import math
 import dataclasses as DC
 import jupyter as JP
 
-
 class BinaryAlogrithms:
     def __init__(self, M: int, table: TT.BinaryTable):
         """
-            Initialize variables for work with tables and efficiency algorithms
+            O(n) Initialize variables for work with tables and efficiency algorithms
         """
         self.table = table
         self.M = M
@@ -37,6 +36,11 @@ class BinaryAlogrithms:
 
 
     def gradientVector(self) -> TT.BinaryTable:
+        """[O(n) Method to determine the highest gradient vector to determine the most efficient cost / profit value]
+
+        Returns:
+            TT.BinaryTable: [Binary table consisting of a single variable representing the cost / profit values]
+        """
         efV = [0, 1]
     
         for i in range(self.C.width):
@@ -49,6 +53,14 @@ class BinaryAlogrithms:
                 efV = [self.P.matrix[0][i], self.C.matrix[0][i]]
 
     def exponentialIteration(self, iteration = -1) -> TT.BinaryTable:
+        """[O(2^n) Method to determine the profitable cost / value relationship with each iteration through removal of coefficients to determine the most efficient cost / profit value]
+
+        Args:
+            iteration (int, optional): [The amount of iterations to perform the determination]. Defaults to -1, iterates until the maximal profit is reached.
+
+        Returns:
+            TT.BinaryTable: [Binary table consisting of a single variable representing the cost / profit values]
+        """
         DiscreteP = self.P.mult(self.Λ).matrix[0][0] + ((self.table.label.height - 1) * self.P.matrix[0][0]) / self.table.label.height
         self.Λ_D.matrix[self.maxM[1]][0] -= 2
         while(iteration != 0):
@@ -58,6 +70,11 @@ class BinaryAlogrithms:
             iteration -= 1
 
     def maximalLambdaIteration(self) -> TT.BinaryTable:
+        """[O(n^2) Method ]
+
+        Returns:
+            TT.BinaryTable: [description]
+        """
         return 0
 
     
