@@ -3,21 +3,21 @@ import math
 import dataclasses as DC
 import jupyter as JP
 
-class BinaryAlogrithms:
+class BinaryAlgorithms:
     def __init__(self, M: int, table: TT.BinaryTable):
         """
             O(n) Initialize variables for work with tables and efficiency algorithms
         """
         self.table = table
         self.M = M
-        self.C = TT.Matrix(table.label.height, 1, table.label.getVertex(-1, 0))
-        self.P = TT.Matrix(table.label.height, 1, table.label.getVertex(-1, 1))
+        self.C = TT.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 0))
+        self.P = TT.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 1))
         self.Csum = self.C.sumVertex(0, -1)
         self.Psum = self.P.sumVertex(0, -1)
         
         data0, data1, data2 = [], [], []
         maxM = [self.M / self.C.matrix[0][0], 0]
-        for i in range(self.table.height):
+        for i in range(self.table.label.height):
             data0.append(math.floor(self.M / self.C.matrix[0][i]))
             data1.append(data0[i])
             data2.append(math.floor(self.M / self.Csum))
@@ -30,9 +30,9 @@ class BinaryAlogrithms:
                     data1[i] = 0
         
         self.maxM = maxM
-        self.Λ_max = table.Coef(data0)
-        self.Λ_D = table.Coef(data1)
-        self.Λ = table.Coef(data2)
+        self.Λ_max = self.table.Coef(data0)
+        self.Λ_D = self.table.Coef(data1)
+        self.Λ = self.table.Coef(data2)
 
 
     def gradientVector(self) -> TT.BinaryTable:
