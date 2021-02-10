@@ -1,7 +1,3 @@
-import numpy as np
-import matplotlib as mpl
-
-
 class Matrix:
     """ 
         Matrix that is of a list * list type
