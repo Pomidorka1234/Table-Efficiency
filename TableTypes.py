@@ -1,3 +1,7 @@
+import numpy as np
+import matplotlib as mpl
+
+
 class Matrix:
     """ 
         Matrix that is of a list * list type
@@ -19,7 +23,7 @@ class Matrix:
             for j in range(self.width):
                 self.matrix[i].append(self.raw[j + i * self.width])
 
-    def add(self, other: Matrix) -> Matrix or str:
+    def add(self, other):
         """[O(n^2) Add two matrices]
 
         Args:
@@ -38,7 +42,7 @@ class Matrix:
         else:
             return 'Unaddable matrices'
     
-    def mult(self, other: Matrix) -> Matrix:
+    def mult(self, other):
         """[O(n^2) Multiply two matrices]
 
         Args:
@@ -58,7 +62,7 @@ class Matrix:
         else:
             return "immultiplicable matrices"
 
-    def getVertex(self, row = -1, column = -1) -> Matrix:
+    def getVertex(self, row = -1, column = -1):
         """[O(n) Get a vertex or a value inside the matrix]
 
         Args:

@@ -36,7 +36,7 @@ class BinaryAlogrithms:
 
 
     def gradientVector(self) -> TT.BinaryTable:
-        """[O(n) Method to determine the highest gradient vector to determine the most efficient cost / profit value]
+        """[O(m - log(n)) Method to determine the highest gradient vector to determine the most efficient cost / profit value]
 
         Returns:
             TT.BinaryTable: [Binary table consisting of a single variable representing the cost / profit values]
