@@ -1,8 +1,9 @@
 import TableTypes as TT
 import math
 import dataclasses as DC
-import jupyter as JP
-
+from numpy import arange, sin
+import numpy
+from matplotlib import pyplot
 class BinaryAlgorithms:
     def __init__(self, M: int, table: TT.BinaryTable):
         """
@@ -35,22 +36,38 @@ class BinaryAlgorithms:
         self.Λ = self.table.Coef(data2)
 
 
-    def gradientVector(self) -> TT.BinaryTable:
-        """[O(m - log(n)) Method to determine the highest gradient vector to determine the most efficient cost / profit value]
+    def gradientVector(self, plot: bool) -> TT.BinaryTable:
+
+        """[O(n * log(n)) Method to determine the highest gradient vector to determine the most efficient cost / profit value, estimated space short: (n * ⌊log(n) + 1⌋)]
+
+        Args:
+            plot (bool): [Whether to plot the graph or not]
 
         Returns:
             TT.BinaryTable: [Binary table consisting of a single variable representing the cost / profit values]
         """
-        efV = [0, 1]
-    
+        efV = [1, 0]
+        
         for i in range(self.C.width):
-            efCheck = [self.P.matrix[0][i], self.C.matrix[0][i]]
+            efCheck = [self.C.matrix[0][i], self.P.matrix[0][i]]
             if (self.C.matrix[0][i] > self.M):
                 self.P.nullify(i)
                 self.C.nullify(i)
                 continue
-            if (efCheck[0] / efCheck[1] > efV[0] / efV[1]):
-                efV = [self.P.matrix[0][i], self.C.matrix[0][i]]
+            if (efCheck[1] / efCheck[0] > efV[1] / efV[0]):
+                efV = [self.C.matrix[0][i], self.P.matrix[0][i]]
+
+        if (plot):
+            x = arange(0, 50, 1)
+            y = numpy.floor(numpy.log2(x) + 1) * x
+            O = numpy.log2(x) * x
+
+            yEXPT = numpy.power(x, 2)
+            yNPH = numpy.power(2, x)
+            #pyplot.plot(x, y)
+            #pyplot.plot(x, O)
+            pyplot.scatter(x, yEXPT)
+            pyplot.scatter(x, yNPH)
 
     def exponentialIteration(self, iteration = -1) -> TT.BinaryTable:
         """[O(2^n) Method to determine the profitable cost / value relationship with each iteration through removal of coefficients to determine the most efficient cost / profit value]
@@ -155,4 +172,4 @@ def BinaryEfficiency(M, table = TT.BinaryTable(), iteration = -1):
 def DependentBinaryEfficiency(M, table = TT.BinaryTable(), dependent = TT.BinaryTable(), iteration = -1):
     data0, data1 = [], []
 
-BinaryEfficiency(20000, TT.BinaryTable([200, 50, 300, 70, 600, 100, 2000, 500, 2500, 650, 4000, 900]), 10)
+#BinaryEfficiency(20000, TT.BinaryTable([200, 50, 300, 70, 600, 100, 2000, 500, 2500, 650, 4000, 900]), 10)
