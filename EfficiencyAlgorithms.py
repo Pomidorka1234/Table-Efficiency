@@ -125,7 +125,7 @@ class BinaryAlgorithms:
     def __str__(self) -> str:
         return "The given table: " + "\n" + self.table + "\n" + "The Λ maximal coeficients and equal digit coeficients: " + "\n" + self.Λ_max + "\n" + self.Λ_D + "respectively." + "\n" + "The maximal profitable single coeficient: " + "\n" + self.Λ
 
-
+class BinaryDependencyAlgorithms
 
 # Calculate most efficient cost combination given a dependency table for a given maximum cost
 def DependentBinaryEfficiency(M, table = TC.BinaryTable(), dependent = TC.BinaryTable(), iteration = -1):
