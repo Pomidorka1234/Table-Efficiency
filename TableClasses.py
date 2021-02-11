@@ -106,6 +106,7 @@ class Matrix:
             row (int, optional): [description]. Defaults to -1.
             column (int, optional): [description]. Defaults to -1.
         """
+        
         if column != -1 and row != -1:
             self.matrix[row][column] = None
 
@@ -183,6 +184,7 @@ class Table:
         Returns:
             [str]: [Represent the table in the tabled matrix format]
         """
+        
         table = ""
         for i in range(self.label.height):
             table += 'L' + str(i) + " |  "
