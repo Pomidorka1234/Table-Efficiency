@@ -90,7 +90,8 @@ class BinaryAlgorithms:
             pyplot.plot(x, (y / self.C.width) * x)
             pyplot.plot(x, (O / self.C.width) * x)
 
-            pyplot.scatter(self.C.width, j)
+            pyplot.scatter(self.C.width, j, 5, 5)
+            #pyplot.scatter()
             
             
 
@@ -123,73 +124,6 @@ class BinaryAlgorithms:
 
     def __str__(self) -> str:
         return "The given table: " + "\n" + self.table + "\n" + "The Λ maximal coeficients and equal digit coeficients: " + "\n" + self.Λ_max + "\n" + self.Λ_D + "respectively." + "\n" + "The maximal profitable single coeficient: " + "\n" + self.Λ
-
-
-# Calculate most efficient cost combination from a table for a given maximum cost
-def BinaryEfficiency(M, table = TC.BinaryTable(), iteration = -1):
-    print("The given table: " + "\n" + table.__str__())                                # O(H)
-    data0, data1, dataG = [], [], []
-    C = TC.Matrix(table.label.height, 1, table.label.getVertex(-1, 0))      # O(2H)
-    P = TC.Matrix(table.label.height, 1, table.label.getVertex(-1, 1))      # O(2H)
-    sumVert = C.sumVertex(0, -1)                                             # O(H)
-    max = [M/C.matrix[0][0], 0]
-    for i in range(table.label.height):                                               # O(H)
-        data0.append(math.floor(M/C.matrix[0][i]))
-        dataG.append(data0[i])
-        data1.append(math.floor(M/sumVert))
-        if i != 0:
-            if dataG[i] * P.matrix[0][i] > max[0] * P.matrix[0][max[1]]:
-                dataG[max[1]] = 0
-                max = [M/dataG[i], i]
-            else:
-                dataG[i] = 0
-
-    Λ_max = table.Coef(data0)                                                # O(H)
-
-    Λ_D = table.Coef(data1)                                                  # O(H)
-
-    Λ = table.Coef(dataG)                                                    # O(H)
-
-    #==============================================================================================================================================================================
-    #The upper vector & maximum coeficient method
-
-    efV = [0, 1]
-    
-
-    for i in range(C.width):
-        efCheck = [P.matrix[0][i], C.matrix[0][i]]
-        if (C.matrix[0][i] > M):
-            P.nullify(i)
-            C.nullify(i)
-            continue
-        if (efCheck[0] / efCheck[1] > efV[0] / efV[1]):
-            efV = [P.matrix[0][i], C.matrix[0][i]]
-        
-    
-    #==============================================================================================================================================================================
-
-    #==============================================================================================================================================================================
-    #Discrete method for finding most efficient coeficients
-    if (False):
-        DiscreteP = P.mult(Λ).matrix[0][0] + ((table.label.height - 1) * P.matrix[0][0]) / table.label.height
-        Λ_D.matrix[max[1]][0] -= 2
-        while(iteration != 0):
-            for i in range(table.label.height):
-                if P.mult(Λ_D).matrix[0][0] >= DiscreteP and C.mult(Λ_D).matrix[0][0] >= 0:
-                    C += 1
-            iteration -= 1
-            
-                
-    #==============================================================================================================================================================================
-    #The same method but without P deciding the coeficients
-    if (False):
-        print('')
-    print("The Λ maximal coeficients and equal digit coeficients: " + "\n" + str(Λ_max) + "\n" + str(Λ_D) + "respectively.")
-    print("The maximal profitable single coeficient: " + "\n" + str(Λ))
-    print(C)
-
-    #for i in range(iteration):
-     #   while true:
 
 
 
