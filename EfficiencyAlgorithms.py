@@ -5,7 +5,7 @@ from numpy import arange, sin
 import numpy
 from matplotlib import pyplot
 class BinaryAlgorithms:
-    def __init__(self, M: int, table: TC.BinaryTable):
+    def __init__(self, M: int, table: TC.BinaryTable) -> None:
         """
             O(n) Initialize variables for work with tables and efficiency algorithms
         """
@@ -64,7 +64,7 @@ class BinaryAlgorithms:
         
         j, counter, limit = 0, 0, 0
         sus = []
-        while counter != self.C.width :
+        while counter != self.C.width:
             efV = [1, 0]
             for i in range(self.C.width):
                 if j < self.C.width:
@@ -78,7 +78,7 @@ class BinaryAlgorithms:
                     sus[i] = False
                     counter += 1
                     continue
-                if (efCheck[1] / efCheck[0] > efV[1] / efV[0]):
+                if ((efCheck[1] / efCheck[0]) * numpy.floor((self.M - limit) / efCheck[0]) * efCheck[0] > (efV[1] / efV[0]) * numpy.floor((self.M - limit) / efV[0]) * efV[0]):
                     efV = [self.C.matrix[0][i], self.P.matrix[0][i]]
             limit = numpy.floor((self.M - limit) / efV[0]) * efV[0] + limit
 
@@ -120,12 +120,13 @@ class BinaryAlgorithms:
         """
         return 0
 
-    
-
     def __str__(self) -> str:
-        return "The given table: " + "\n" + self.table + "\n" + "The Λ maximal coeficients and equal digit coeficients: " + "\n" + self.Λ_max + "\n" + self.Λ_D + "respectively." + "\n" + "The maximal profitable single coeficient: " + "\n" + self.Λ
+        return "The given table: " + "\n" + self.table.__str__() + "\n" + "The Λ maximal coeficients and equal digit coeficients: " + "\n" + self.Λ_max.__str__() + "\n" + self.Λ_D.__str__() + "respectively." + "\n" + "The maximal profitable single coeficient: " + "\n" + self.Λ.__str__()
 
-class BinaryDependencyAlgorithms
+class BinaryDependencyAlgorithms:
+    def __init__(self, M: int, table: TC.BinaryTable) -> None:
+        self.table = table
+        self.M = M
 
 # Calculate most efficient cost combination given a dependency table for a given maximum cost
 def DependentBinaryEfficiency(M, table = TC.BinaryTable(), dependent = TC.BinaryTable(), iteration = -1):
