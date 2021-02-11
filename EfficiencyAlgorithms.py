@@ -46,28 +46,38 @@ class BinaryAlgorithms:
         Returns:
             TT.BinaryTable: [Binary table consisting of a single variable representing the cost / profit values]
         """
-        efV = [1, 0]
-        
-        for i in range(self.C.width):
-            efCheck = [self.C.matrix[0][i], self.P.matrix[0][i]]
-            if (self.C.matrix[0][i] > self.M):
-                self.P.nullify(i)
-                self.C.nullify(i)
-                continue
-            if (efCheck[1] / efCheck[0] > efV[1] / efV[0]):
-                efV = [self.C.matrix[0][i], self.P.matrix[0][i]]
+
+        j, counter, limit = 0, 0, 0
+        sus = []
+        while counter != self.C.width :
+            efV = [1, 0]
+            for i in range(self.C.width):
+                if j < self.C.width:
+                    sus.append(True)
+                j += 1
+                if (sus[i] == False):
+                    continue
+                efCheck = [self.C.matrix[0][i], self.P.matrix[0][i]]
+
+                if (efCheck[0] + limit > self.M):
+                    sus[i] = False
+                    counter += 1
+                    continue
+                if (efCheck[1] / efCheck[0] > efV[1] / efV[0]):
+                    efV = [self.C.matrix[0][i], self.P.matrix[0][i]]
+            limit = numpy.floor((self.M - limit) / efV[0]) * efV[0] + limit
 
         if (plot):
-            x = arange(0, 50, 1)
-            y = numpy.floor(numpy.log2(x) + 1) * x
-            O = numpy.log2(x) * x
+            x = arange(0, self.C.width + 1, 1)
+            y = numpy.floor(numpy.log2(self.C.width) + 1) * self.C.width
+            O = numpy.log2(self.C.width) * self.C.width
 
-            yEXPT = numpy.power(x, 2)
-            yNPH = numpy.power(2, x)
-            #pyplot.plot(x, y)
-            #pyplot.plot(x, O)
-            pyplot.scatter(x, yEXPT)
-            pyplot.scatter(x, yNPH)
+            pyplot.plot(x, (y / self.C.width) * x)
+            pyplot.plot(x, (O / self.C.width) * x)
+
+            pyplot.scatter(self.C.width, j)
+            
+            
 
     def exponentialIteration(self, iteration = -1) -> TT.BinaryTable:
         """[O(2^n) Method to determine the profitable cost / value relationship with each iteration through removal of coefficients to determine the most efficient cost / profit value]

@@ -109,13 +109,12 @@ class Matrix:
         if column != -1 and row != -1:
             self.matrix[row][column] = None
 
-        if column != -1:
+        if column != -1 and row == -1:
             for i in range(self.height):
                 self.matrix[i][column] = None
             
-        if row != -1:
-            if column == -1:
-                self.matrix[row] = None
+        if column == -1 and row != -1:
+            self.matrix[row] = None
 
     def __str__(self) -> str:
         """[O(n*m) Format a string of n by m matrix]
