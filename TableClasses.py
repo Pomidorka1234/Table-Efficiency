@@ -1,3 +1,5 @@
+import BasicMethods as BM
+
 class Matrix:
     """ 
         Matrix that is of a list * list type
@@ -12,7 +14,6 @@ class Matrix:
         """
         self.width = width
         self.height = height
-        self.raw = rawData
         self.matrix = []
         for i in range(self.height):
             self.matrix.append([])
@@ -177,6 +178,11 @@ class Table:
             self.label = Matrix(width, int(len(rawData)/width), rawData)
         except:
             print("Please provide correct input")
+
+    def tableGtransform(self, x: int, n: int) -> None:
+        for i in range(self.label.height):
+            self.label.matrix[i][0] += BM.G(self.label.matrix[i][1], x, n)
+
 
     def __str__(self) -> str:
         """[O(n*m) Format a string of n by m matrix]

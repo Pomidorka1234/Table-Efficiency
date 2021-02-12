@@ -31,9 +31,9 @@ class BinaryAlgorithms:
                     data1[i] = 0
         
         self.maxM = maxM
-        self.Λ_max = self.table.Coef(data0)
-        self.Λ_D = self.table.Coef(data1)
-        self.Λ = self.table.Coef(data2)
+        self.Λ_max = TC.Matrix(1, self.C.width, data0)
+        self.Λ = TC.Matrix(1, self.C.width, data1)
+        self.Λ_D = TC.Matrix(1, self.C.width, data2)
 
     def setTable(self, point: list) -> None:
         """[setter with dependencies: C,P,Csum,Psum]
@@ -78,7 +78,7 @@ class BinaryAlgorithms:
                     sus[i] = False
                     counter += 1
                     continue
-                if ((efCheck[1] / efCheck[0]) * numpy.floor((self.M - limit) / efCheck[0]) * efCheck[0] > (efV[1] / efV[0]) * numpy.floor((self.M - limit) / efV[0]) * efV[0]):
+                if (efCheck[1] / efCheck[0] > efV[1] / efV[0]):
                     efV = [self.C.matrix[0][i], self.P.matrix[0][i]]
             limit = numpy.floor((self.M - limit) / efV[0]) * efV[0] + limit
 
@@ -87,11 +87,9 @@ class BinaryAlgorithms:
             y = numpy.floor(numpy.log2(self.C.width) + 1) * self.C.width
             O = numpy.floor(numpy.log2(self.C.width)) * self.C.width
 
-            pyplot.plot(x, (y / self.C.width) * x)
-            pyplot.plot(x, (O / self.C.width) * x)
+            pyplot.plot(x, (y / self.C.width) * x, (O / self.C.width) * x)            
 
             pyplot.scatter(self.C.width, j, 5, 5)
-            #pyplot.scatter()
             
             
 
@@ -123,13 +121,12 @@ class BinaryAlgorithms:
     def __str__(self) -> str:
         return "The given table: " + "\n" + self.table.__str__() + "\n" + "The Λ maximal coeficients and equal digit coeficients: " + "\n" + self.Λ_max.__str__() + "\n" + self.Λ_D.__str__() + "respectively." + "\n" + "The maximal profitable single coeficient: " + "\n" + self.Λ.__str__()
 
-class BinaryDependencyAlgorithms:
-    def __init__(self, M: int, table: TC.BinaryTable) -> None:
-        self.table = table
-        self.M = M
+#class BinaryDependencyAlgorithms:
+#    def __init__(self, M: int, table: TC.BinaryTable, penalty: int) -> None:
+#        self.table = table
+#        self.M = M
 
-# Calculate most efficient cost combination given a dependency table for a given maximum cost
-def DependentBinaryEfficiency(M, table = TC.BinaryTable(), dependent = TC.BinaryTable(), iteration = -1):
-    data0, data1 = [], []
+#    def gradientVector(self):
+#        self.M = 2
+        
 
-#BinaryEfficiency(20000, TC.BinaryTable([200, 50, 300, 70, 600, 100, 2000, 500, 2500, 650, 4000, 900]), 10)
