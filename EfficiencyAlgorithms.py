@@ -50,7 +50,7 @@ class BinaryAlgorithms:
         self.Psum += point[1]
 
 
-    def gradientVector(self, plot: bool) -> TC.BinaryTable:
+    def gradientVector(self, plot: bool) -> TC.Matrix:
 
         """[O(n * log(n)) Method to determine the highest gradient vector to determine the most efficient cost / profit value, estimated space short: (n * ⌊log(n) + 1⌋)]
 
@@ -61,17 +61,21 @@ class BinaryAlgorithms:
             TC.BinaryTable: [Binary table consisting of a single variable representing the cost / profit values]
         """
 
-        
+        Λ = TC.Matrix(0, 0, 0)
+        Λ.height = self.C.width
+        Λ.width = 1
         j, counter, limit = 0, 0, 0
         sus = []
         while counter != self.C.width:
-            efV = [1, 0]
+            efV = [self.C.matrix[0][0], self.P.matrix[0][0], 0]
             for i in range(self.C.width):
                 if j < self.C.width:
                     sus.append(True)
+                    Λ.matrix.append([0])
                 j += 1
                 if (sus[i] == False):
                     continue
+
                 efCheck = [self.C.matrix[0][i], self.P.matrix[0][i]]
 
                 if (efCheck[0] + limit > self.M):
@@ -79,17 +83,22 @@ class BinaryAlgorithms:
                     counter += 1
                     continue
                 if (efCheck[1] / efCheck[0] > efV[1] / efV[0]):
-                    efV = [self.C.matrix[0][i], self.P.matrix[0][i]]
-            limit = numpy.floor((self.M - limit) / efV[0]) * efV[0] + limit
+                    efV = [self.C.matrix[0][i], self.P.matrix[0][i], i]
+            
+            Λ.matrix[efV[2]][0] += int(numpy.floor((self.M - limit) / efV[0]))
 
-        if (plot):
-            x = arange(0, self.C.width + 1, 1)
-            y = numpy.floor(numpy.log2(self.C.width) + 1) * self.C.width
-            O = numpy.floor(numpy.log2(self.C.width)) * self.C.width
+            limit = efV[0] * numpy.floor((self.M - limit) / efV[0]) + limit
 
-            pyplot.plot(x, (y / self.C.width) * x, (O / self.C.width) * x)            
+        #if (plot):
+        #    x = arange(0, self.C.width + 1, 1)
+        #    y = numpy.floor(numpy.log2(self.C.width) + 1) * self.C.width
+        #    O = numpy.floor(numpy.log2(self.C.width)) * self.C.width
 
-            pyplot.scatter(self.C.width, j, 5, 5)
+        #    pyplot.plot(x, (y / self.C.width) * x, (O / self.C.width) * x)            
+
+        #    pyplot.scatter(self.C.width, j, 5, 5)
+
+        return Λ
             
             
 
@@ -121,12 +130,49 @@ class BinaryAlgorithms:
     def __str__(self) -> str:
         return "The given table: " + "\n" + self.table.__str__() + "\n" + "The Λ maximal coeficients and equal digit coeficients: " + "\n" + self.Λ_max.__str__() + "\n" + self.Λ_D.__str__() + "respectively." + "\n" + "The maximal profitable single coeficient: " + "\n" + self.Λ.__str__()
 
-#class BinaryDependencyAlgorithms:
-#    def __init__(self, M: int, table: TC.BinaryTable, penalty: int) -> None:
-#        self.table = table
-#        self.M = M
+class BinaryDependencyAlgorithms:
+    def __init__(self, M: int, table: TC.BinaryTable, penalty: list) -> None:
+        self.M = M
+        self.penalty = penalty
+        self.table = table
+        self.remainder = self.table.tableGtransform(self.penalty[0], self.penalty[1])
+        self.remainder2 = 0
 
-#    def gradientVector(self):
-#        self.M = 2
-        
+        self.C = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 0))
+        self.P = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 1))
+        self.Csum = self.C.sumVertex(0, -1)
+        self.Psum = self.P.sumVertex(0, -1)
 
+    def gradientVector(self):
+        Λ = TC.Matrix(0, 0, 0)
+        Λ.height = self.C.width
+        Λ.width = 1
+        j, counter, limit = 0, 0, 0
+        sus = []
+
+        while counter != self.C.width:
+            efV = [self.C.matrix[0][0], self.P.matrix[0][0], 0]
+            for i in range(self.C.width):
+                if j < self.C.width:
+                    sus.append(True)
+                    Λ.matrix.append([0])
+                j += 1
+                if (sus[i] == False):
+                    continue
+
+                efCheck = [self.C.matrix[0][i], self.P.matrix[0][i]]
+
+                if (efCheck[0] + limit > self.M):
+                    sus[i] = False
+                    counter += 1
+                    continue
+                if (efCheck[1] / efCheck[0] > efV[1] / efV[0]):
+                    efV = [self.C.matrix[0][i], self.P.matrix[0][i], i]
+
+            remainder2 = 
+            Λ.matrix[efV[2]][0] += int(numpy.floor((self.M - limit) / (efV[0] + (self.penalty[1] * self.remainder[efV[2]]) / self.penalty[0]) - remainder2))
+
+            limit = efV[0] * numpy.floor((self.M - limit) / efV[0]) + limit
+
+
+class TrinaryAlgorithms

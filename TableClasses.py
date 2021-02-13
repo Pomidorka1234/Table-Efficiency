@@ -1,4 +1,4 @@
-import BasicMethods as BM
+#import BasicMethods as BM
 
 class Matrix:
     """ 
@@ -18,7 +18,7 @@ class Matrix:
         for i in range(self.height):
             self.matrix.append([])
             for j in range(self.width):
-                self.matrix[i].append(self.raw[j + i * self.width])
+                self.matrix[i].append(rawData[j + i * self.width])
 
     def add(self, other):
         """[O(n^2) Add two matrices]
@@ -174,15 +174,18 @@ class Table:
             width (int): [the width of table's matrix]
             rawData (list, optional): [raw list to distribute in the table's matrix by list's size per width]. Defaults to ["x0", "y0"].
         """
-        try:
-            self.label = Matrix(width, int(len(rawData)/width), rawData)
-        except:
-            print("Please provide correct input")
+        
+        self.label = Matrix(width, int(len(rawData)/width), rawData)
 
-    def tableGtransform(self, x: int, n: int) -> None:
+        
+    def tableGtransform(self, x: int, n: int) -> list:
+        remainder = []
         for i in range(self.label.height):
-            self.label.matrix[i][0] += BM.G(self.label.matrix[i][1], x, n)
-
+            gmod = BM.G(self.label.matrix[i][1], x, n)
+            self.label.matrix[i][0] += gmod
+            remainder.append(self.label.matrix[i][1] - gmod)
+        return remainder
+            
 
     def __str__(self) -> str:
         """[O(n*m) Format a string of n by m matrix]

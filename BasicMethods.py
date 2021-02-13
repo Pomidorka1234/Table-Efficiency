@@ -13,16 +13,5 @@ def G(y: int, x: int, n: int) -> int:
     """
     return math.floor(y / x) * n
 
-def rG(y: int, Gfunc: int) -> int:
-    """[Remainding part of the slope's y part]
-
-    Args:
-        y (int): [slope's y part]
-        Gfunc (G): [G function of y]
-
-    Returns:
-        int: [The remainding part]
-    """
-    return n - Gfunc
 
 
