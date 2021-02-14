@@ -4,6 +4,7 @@ import dataclasses as DC
 from numpy import arange, sin
 import numpy
 from matplotlib import pyplot
+
 class BinaryAlgorithms:
     def __init__(self, M: int, table: TC.BinaryTable) -> None:
         """
@@ -175,4 +176,22 @@ class BinaryDependencyAlgorithms:
             limit = efV[0] * numpy.floor((self.M - limit) / efV[0]) + limit
 
 
-class TrinaryAlgorithms
+class nAryAlgorithms:
+    def __init__(self, M: int, table: TC.Table) -> None:
+
+        self.table = table
+        self.M = M
+        self.C = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 0))
+        self.P = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 1))
+        self.Csum = self.C.sumVertex(0, -1)
+        self.Psum = self.P.sumVertex(0, -1)
+
+class nAryDependencyAlgorithms:
+    def __init__(self, treeRelationship, M: list, table: TC.Table) -> None:
+
+        self.table = table
+        self.M = M
+        self.C = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 0))
+        self.P = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 1))
+        self.Csum = self.C.sumVertex(0, -1)
+        self.Psum = self.P.sumVertex(0, -1)
