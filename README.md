@@ -1,4 +1,5 @@
 # Table-Efficiency
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a76e5f37350f4b599a1f991c669a4ca8)](https://app.codacy.com/gh/Pomidorka1234/Table-Efficiency?utm_source=github.com&utm_medium=referral&utm_content=Pomidorka1234/Table-Efficiency&utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/License-MIT%20License-brightgreen)]()
 
 ## Description
