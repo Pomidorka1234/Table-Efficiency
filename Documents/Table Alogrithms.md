@@ -34,23 +34,21 @@
 
 <div style="page-break-after: always"></div>
 
-
 <div id='topic-0' class='below-flow heading-topic'><hr>Preface</div>
 
-<font class='preface-content' size='5'>Introduction</font>
+<font class='below-flow' size='5'>Introduction</font>
 
 <div style="page-break-after: always"></div>
 
-<font class='tribelow-flow' size='5'>Objectives and Requirements</font>
+<font class='below-flow' size='5'>Objectives and Requirements</font>
 
 <div style="page-break-after: always"></div>
-
 
 <div class='below-flow heading-topic'><hr>Contents</div>
 
-<font style="position: relative; top: 80px" size='3'>[Preface](#topic-0) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3</font>
+<font style="position: relative" size='3'>[Preface](#topic-0) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3</font>
 
-<font style="position: relative; top: 70px; font-size: 16.09px" size='3'>[Tabled Matrices & Efficient Values](#topic-1) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6</font>
+<font style="position: relative; bottom: 10px; font-size: 16.09px" size='3'>[Tabled Matrices & Efficient Values](#topic-1) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6</font>
 
 <div style="page-break-after: always"></div>
 
@@ -77,7 +75,6 @@ $$
 </div>
 <div>
 In the first section, we will look at the simple table, that is the binary table.
-
 
 </div>
 </div>
