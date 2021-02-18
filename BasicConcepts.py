@@ -1,6 +1,5 @@
 import math
 from typing import Iterable, TypeVar
-import builtins
 
 def G(y: int, x: int, n: int) -> int:
     """[y, x of the slope's integer part multiplication by a value]
@@ -28,7 +27,7 @@ class NaryTree(object):
                 return False
         return True
 
-    def appendNode(self, node: tuple(Iterable[_Trn]), n = len(self.node)) -> None:
+    def appendNode(self, node: tuple(Iterable[_Trn]), n: int) -> None:
         self.node.insert(n, node)
 
     def replaceChild(self, n: int, m: int) -> None:
@@ -55,13 +54,13 @@ class BinaryTree(object):
     def hasNode(self):
         return self.left != NameError or self.right != NameError
 
-    def appendNode(self, node: NaryTree, n = len(self.node)) -> None:
+    def appendNode(self, node: NaryTree, n: int) -> None:
         self.node.insert(n, node)
 
     def replaceChild(self) -> None:
         temp = self.left
         self.left = self.right
-        self.right = self.left
+        self.right = temp
 
     def replaceChildValue(self) -> None:
         temp = self.left.value
