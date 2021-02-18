@@ -5,9 +5,8 @@ class Matrix:
     """Matrix that is of a list * list type"""
 
     def __init__(self, width: int, height: int, rawData: list) -> None:
-
-
-        """O(n*m) Initializes the matrix type
+        """
+        O(n*m) Initializes the matrix type
 
         Args:
             width (int): [the width of the matrix]
@@ -23,9 +22,8 @@ class Matrix:
                 self.matrix[i].append(rawData[j + i * self.width])
 
     def add(self, other):
-
-
-        """[O(n^2) Add two matrices]
+        """
+        O(n^2) Add two matrices
 
         Args:
             other (Matrix): [The second matrix to append]
@@ -44,9 +42,8 @@ class Matrix:
             return 'Unaddable matrices'
 
     def mult(self, other):
-
-
-        """[O(n^2) Multiply two matrices]
+        """
+        O(n^2) Multiply two matrices
 
         Args:
             other (Matrix): [The second multipliable]
@@ -66,9 +63,8 @@ class Matrix:
             return "immultiplicable matrices"
 
     def getVertex(self, row = -1, column = -1):
-
-
-        """[O(n) Get a vertex or a value inside the matrix]
+        """
+        O(n) Get a vertex or a value inside the matrix
 
         Args:
             row (int, optional): [The row vertex]. Defaults to -1.
@@ -90,9 +86,8 @@ class Matrix:
         return Pos
 
     def sumVertex(self, row = -1, column = -1) -> int:
-
-
-        """[O(n) Get the sum of value in a vertex]
+        """
+        [O(n) Get the sum of value in a vertex]
 
         Args:
             row (int, optional): [The row vertex]. Defaults to -1.
@@ -111,9 +106,8 @@ class Matrix:
         return sum
 
     def nullify(self, row = -1, column = -1) -> None:
-
-
-        """[O(n) Nullify a vertex or a value inside a matrix]
+        """
+        O(n) Nullify a vertex or a value inside a matrix
 
         Args:
             row (int, optional): [description]. Defaults to -1.
@@ -131,9 +125,8 @@ class Matrix:
             self.matrix[row] = None
 
     def __str__(self) -> str:
-
-
-        """[O(n*m) Format a string of n by m matrix]
+        """
+        O(n*m) Format a string of n by m matrix
 
         Returns:
             [str]: [Represent the matrix in the mathematical matrix format]
@@ -181,9 +174,8 @@ class Table:
 
     """Table that is of a list * matrix type"""
     def __init__(self, width: int ,rawData: list) -> None:
-
-
-        """[O(n) Initialize table's matrix]
+        """
+        O(n) Initialize table's matrix
 
         Args:
             width (int): [the width of table's matrix]
@@ -203,9 +195,8 @@ class Table:
             
 
     def __str__(self) -> str:
-
-
-        """[O(n*m) Format a string of n by m matrix]
+        """
+        O(n*m) Format a string of n by m matrix
 
         Returns:
             [str]: [Represent the table in the tabled matrix format]
@@ -223,15 +214,15 @@ class Table:
 
 class BinaryTable(Table):
 
-    """[Binary table that is of a Table type]
+    """
+    Binary table that is of a Table type
 
     Args:
         Table (Table): [Table super type]
     """
     def __init__(self, rawData: list) -> None:
-
-
-        """[O(n) Initialize table's matrix]
+        """
+        O(n) Initialize table's matrix
 
         Args:
             rawData (list, optional): [raw list to distribute in the table's matrix by half of a list's size]. Defaults to [0, 0].
@@ -240,9 +231,8 @@ class BinaryTable(Table):
 
 
     def Coef(self, rawData: list) -> Matrix:
-
-
-        """[Make a Matrix of table's height]
+        """
+        Make a Matrix out of table's height
 
         Args:
             rawData (list): [raw list to distribute in the table's matrix by list's size]
