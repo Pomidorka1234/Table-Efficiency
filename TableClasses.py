@@ -1,16 +1,15 @@
 import BasicConcepts as BC
 
 class Matrix:
-    
-    """Matrix that is of a list * list type
-    """
+    """Matrix that is of a list * list type"""
+
     def __init__(self, width: int, height: int, rawData: list) -> None:
         """O(n*m) Initializes the matrix type
 
-            Args:
-                width (int): [the width of the matrix]
-                height (int): [the height of the matrix]
-                rawData (list): [raw list to distribute in the matrix]
+        Args:
+            width (int): [the width of the matrix]
+            height (int): [the height of the matrix]
+            rawData (list): [raw list to distribute in the matrix]
         """
         self.width = width
         self.height = height
