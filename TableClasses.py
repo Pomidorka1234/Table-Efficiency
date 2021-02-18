@@ -4,7 +4,9 @@ class Matrix:
     """Matrix that is of a list * list type"""
 
     def __init__(self, width: int, height: int, rawData: list) -> None:
-        """O(n*m) Initializes the matrix type
+        """
+        
+        O(n*m) Initializes the matrix type
 
         Args:
             width (int): [the width of the matrix]
