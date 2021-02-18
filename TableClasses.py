@@ -6,6 +6,7 @@ class Matrix:
 
     def __init__(self, width: int, height: int, rawData: list) -> None:
 
+
         """O(n*m) Initializes the matrix type
 
         Args:
