@@ -1,7 +1,6 @@
 import BasicConcepts as BC
 
 class Matrix:
-
     """Matrix that is of a list * list type"""
 
     def __init__(self, width: int, height: int, rawData: list) -> None:
@@ -171,7 +170,6 @@ class Matrix:
 
 
 class Table:
-
     """Table that is of a list * matrix type"""
     def __init__(self, width: int ,rawData: list) -> None:
         """
