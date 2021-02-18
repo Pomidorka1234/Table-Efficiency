@@ -1,7 +1,7 @@
-#import BasicMethods as BM
+import BasicConcepts as BC
 
 class Matrix:
-    """ 
+    """
         Matrix that is of a list * list type
     """
     def __init__(self, width: int, height: int, rawData: list) -> None:
@@ -38,7 +38,7 @@ class Matrix:
             return newMatrix
         else:
             return 'Unaddable matrices'
-    
+
     def mult(self, other):
         """[O(n^2) Multiply two matrices]
 
@@ -51,10 +51,10 @@ class Matrix:
         if (self.width == other.height):
             rawData = []
             for i in range(self.height * other.width):
-                sum = 0
+                sumCross = 0
                 for j in range(self.width):
-                    sum += self.matrix[i - int(i/self.width)][j] * other.matrix[j][i - int(i/self.width)]
-                rawData.append(sum)
+                    sumCross += self.matrix[i - int(i/self.width)][j] * other.matrix[j][i - int(i/self.width)]
+                rawData.append(sumCross)
             return Matrix(self.height, other.width, rawData)
         else:
             return "immultiplicable matrices"
@@ -167,12 +167,12 @@ class Table:
     """
         Table that is of a list * matrix type
     """
-    def __init__(self, width: int ,rawData = ["x0", "y0"]) -> None:
+    def __init__(self, width: int ,rawData: list) -> None:
         """[O(n) Initialize table's matrix]
 
         Args:
             width (int): [the width of table's matrix]
-            rawData (list, optional): [raw list to distribute in the table's matrix by list's size per width]. Defaults to ["x0", "y0"].
+            rawData (list): [raw list to distribute in the table's matrix by list's size per width]. Defaults to ["x0", "y0"].
         """
         
         self.label = Matrix(width, int(len(rawData)/width), rawData)
@@ -181,7 +181,7 @@ class Table:
     def tableGtransform(self, x: int, n: int) -> list:
         remainder = []
         for i in range(self.label.height):
-            gmod = BM.G(self.label.matrix[i][1], x, n)
+            gmod = BC.G(self.label.matrix[i][1], x, n)
             self.label.matrix[i][0] += gmod
             remainder.append(self.label.matrix[i][1] - gmod)
         return remainder
@@ -210,7 +210,7 @@ class BinaryTable(Table):
     Args:
         Table (Table): [Table super type]
     """
-    def __init__(self, rawData = [0, 0]) -> None:
+    def __init__(self, rawData: list) -> None:
         """[O(n) Initialize table's matrix]
 
         Args:
