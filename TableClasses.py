@@ -5,6 +5,7 @@ class Matrix:
     """Matrix that is of a list * list type"""
 
     def __init__(self, width: int, height: int, rawData: list) -> None:
+
         """O(n*m) Initializes the matrix type
 
         Args:
@@ -21,6 +22,7 @@ class Matrix:
                 self.matrix[i].append(rawData[j + i * self.width])
 
     def add(self, other):
+
         """[O(n^2) Add two matrices]
 
         Args:
@@ -40,6 +42,7 @@ class Matrix:
             return 'Unaddable matrices'
 
     def mult(self, other):
+
         """[O(n^2) Multiply two matrices]
 
         Args:
@@ -60,6 +63,7 @@ class Matrix:
             return "immultiplicable matrices"
 
     def getVertex(self, row = -1, column = -1):
+
         """[O(n) Get a vertex or a value inside the matrix]
 
         Args:
@@ -82,6 +86,7 @@ class Matrix:
         return Pos
 
     def sumVertex(self, row = -1, column = -1) -> int:
+
         """[O(n) Get the sum of value in a vertex]
 
         Args:
@@ -101,6 +106,7 @@ class Matrix:
         return sum
 
     def nullify(self, row = -1, column = -1) -> None:
+
         """[O(n) Nullify a vertex or a value inside a matrix]
 
         Args:
@@ -119,6 +125,7 @@ class Matrix:
             self.matrix[row] = None
 
     def __str__(self) -> str:
+
         """[O(n*m) Format a string of n by m matrix]
 
         Returns:
@@ -167,6 +174,7 @@ class Table:
 
     """Table that is of a list * matrix type"""
     def __init__(self, width: int ,rawData: list) -> None:
+
         """[O(n) Initialize table's matrix]
 
         Args:
@@ -187,6 +195,7 @@ class Table:
             
 
     def __str__(self) -> str:
+
         """[O(n*m) Format a string of n by m matrix]
 
         Returns:
@@ -204,13 +213,14 @@ class Table:
         
 
 class BinaryTable(Table):
-    
+
     """[Binary table that is of a Table type]
 
     Args:
         Table (Table): [Table super type]
     """
     def __init__(self, rawData: list) -> None:
+
         """[O(n) Initialize table's matrix]
 
         Args:
@@ -220,6 +230,7 @@ class BinaryTable(Table):
 
 
     def Coef(self, rawData: list) -> Matrix:
+        
         """[Make a Matrix of table's height]
 
         Args:
