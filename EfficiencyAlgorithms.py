@@ -1,8 +1,8 @@
 import TableClasses as TC
-import BasicConcepts as BC
+#import localib as lb
 import math
-import dataclasses as DC
-from numpy import arange, sin
+#import dataclasses as DC
+from numpy import { arange, sin }
 import numpy
 from matplotlib import pyplot
 
@@ -17,7 +17,7 @@ class BinaryAlgorithms:
         self.P = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 1))
         self.Csum = self.C.sumVertex(0, -1)
         self.Psum = self.P.sumVertex(0, -1)
-        
+
         data0, data1, data2 = [], [], []
         maxM = [self.M / self.C.matrix[0][0], 0]
         for i in range(self.table.label.height):
@@ -96,7 +96,7 @@ class BinaryAlgorithms:
             y = numpy.floor(numpy.log2(self.C.width) + 1) * self.C.width
             O = numpy.floor(numpy.log2(self.C.width)) * self.C.width
 
-            pyplot.plot(x, (y / self.C.width) * x, (O / self.C.width) * x)            
+            pyplot.plot(x, (y / self.C.width) * x, (O / self.C.width) * x)
 
             pyplot.scatter(self.C.width, j, 5, 5)
 
@@ -177,7 +177,7 @@ class BinaryDependencyAlgorithms:
             limit = efV[0] * numpy.floor((self.M - limit) / efV[0]) + limit
 
 """class NarySimiliarAlgorithms:
-    def __init__(self, M: int, table: TC.Table, treeRelationship: BC.NaryTree) -> None:
+    def __init__(self, M: int, table: TC.Table, treeRelationship: lb.NaryTree) -> None:
 
         self.table = table
         self.tree = treeRelationship
@@ -192,7 +192,7 @@ class BinaryDependencyAlgorithms:
 
 
 class NarySimiliarDependencyAlgorithms:
-    def __init__(self, M: int, table: TC.Table, penalty: list, treeRelationship: BC.NaryTree) -> None:
+    def __init__(self, M: int, table: TC.Table, penalty: list, treeRelationship: lb.NaryTree) -> None:
 
         self.table = table
         self.M = M

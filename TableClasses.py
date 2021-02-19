@@ -1,4 +1,4 @@
-import BasicConcepts as BC
+import localib as lb
 
 class Matrix:
     """Matrix that is of a list * list type"""
@@ -189,7 +189,7 @@ class Table:
             gmod = BC.G(self.label.matrix[i][1], x, n)
             self.label.matrix[i][0] += gmod
             remainder.append(self.label.matrix[i][1] - gmod)
-        return remainder  
+        return remainder
 
     def __str__(self) -> str:
         """
