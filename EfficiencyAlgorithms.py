@@ -31,7 +31,7 @@ class BinaryAlgorithms:
                     maxM = [self.M / data1[i], i]
                 else:
                     data1[i] = 0
-        
+
         self.maxM = maxM
         self.Λ_max = TC.Matrix(1, self.C.width, data0)
         self.Λ = TC.Matrix(1, self.C.width, data1)
@@ -117,8 +117,9 @@ class BinaryAlgorithms:
         self.Λ_D.matrix[self.maxM[1]][0] -= 2
         while(iteration != 0):
             for i in range(self.table.label.height):
-                if self.P.mult(self.Λ_D).matrix[0][0] >= DiscreteP and C.mult(self.Λ_D).matrix[0][0] >= 0:
-                    C += 1
+                if self.P.mult(self.Λ_D).matrix[i][0] >= DiscreteP and C.mult(self.Λ_D).matrix[i][0] >= 0:
+                    #self.Λ_D.matrix[self.maxM[1]][0] += 1
+                    continue
             iteration -= 1
 
     def maximalLambdaIteration(self) -> TC.BinaryTable:
