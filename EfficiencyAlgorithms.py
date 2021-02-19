@@ -1,4 +1,5 @@
 import TableClasses as TC
+import BasicConcepts as BC
 import math
 import dataclasses as DC
 from numpy import arange, sin
@@ -170,13 +171,37 @@ class BinaryDependencyAlgorithms:
                 if (efCheck[1] / efCheck[0] > efV[1] / efV[0]):
                     efV = [self.C.matrix[0][i], self.P.matrix[0][i], i]
 
-            remainder2 = 
+            remainder2 = 0
             Λ.matrix[efV[2]][0] += int(numpy.floor((self.M - limit) / (efV[0] + (self.penalty[1] * self.remainder[efV[2]]) / self.penalty[0]) - remainder2))
 
             limit = efV[0] * numpy.floor((self.M - limit) / efV[0]) + limit
 
+class NarySimiliarAlgorithms:
+    def __init__(self, M: int, table: TC.Table, treeRelationship: BC.NaryTree) -> None:
 
-class nAryAlgorithms:
+        self.table = table
+        this.tree = treeRelationships
+        self.M = M
+        self.C = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 0))
+        self.P = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 1))
+        self.Csum = self.C.sumVertex(0, -1)
+        self.Psum = self.P.sumVertex(0, -1)
+
+    def convertToBinary(self) -> BinaryAlgorithms:
+        return BinaryAlgorithms(self.M, )
+
+
+class NarySimiliarDependencyAlgorithms:
+    def __init__(self, M: int, table: TC.Table, penalty: list, treeRelationship: BC.NaryTree) -> None:
+
+        self.table = table
+        self.M = M
+        self.C = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 0))
+        self.P = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 1))
+        self.Csum = self.C.sumVertex(0, -1)
+        self.Psum = self.P.sumVertex(0, -1)
+
+class NaryAlgorithms:
     def __init__(self, M: int, table: TC.Table) -> None:
 
         self.table = table
@@ -186,8 +211,8 @@ class nAryAlgorithms:
         self.Csum = self.C.sumVertex(0, -1)
         self.Psum = self.P.sumVertex(0, -1)
 
-class nAryDependencyAlgorithms:
-    def __init__(self, treeRelationship, M: list, table: TC.Table) -> None:
+class NaryDependencyAlgorithms:
+    def __init__(self, M: int, table: TC.Table, penalty: list) -> None:
 
         self.table = table
         self.M = M
