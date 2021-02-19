@@ -91,14 +91,14 @@ class BinaryAlgorithms:
 
             limit = efV[0] * numpy.floor((self.M - limit) / efV[0]) + limit
 
-        #if (plot):
-        #    x = arange(0, self.C.width + 1, 1)
-        #    y = numpy.floor(numpy.log2(self.C.width) + 1) * self.C.width
-        #    O = numpy.floor(numpy.log2(self.C.width)) * self.C.width
+        if (plot):
+            x = arange(0, self.C.width + 1, 1)
+            y = numpy.floor(numpy.log2(self.C.width) + 1) * self.C.width
+            O = numpy.floor(numpy.log2(self.C.width)) * self.C.width
 
-        #    pyplot.plot(x, (y / self.C.width) * x, (O / self.C.width) * x)            
+            pyplot.plot(x, (y / self.C.width) * x, (O / self.C.width) * x)            
 
-        #    pyplot.scatter(self.C.width, j, 5, 5)
+            pyplot.scatter(self.C.width, j, 5, 5)
 
         return Λ
             
@@ -176,11 +176,11 @@ class BinaryDependencyAlgorithms:
 
             limit = efV[0] * numpy.floor((self.M - limit) / efV[0]) + limit
 
-class NarySimiliarAlgorithms:
+"""class NarySimiliarAlgorithms:
     def __init__(self, M: int, table: TC.Table, treeRelationship: BC.NaryTree) -> None:
 
         self.table = table
-        this.tree = treeRelationships
+        self.tree = treeRelationship
         self.M = M
         self.C = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 0))
         self.P = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 1))
@@ -188,7 +188,7 @@ class NarySimiliarAlgorithms:
         self.Psum = self.P.sumVertex(0, -1)
 
     def convertToBinary(self) -> BinaryAlgorithms:
-        return BinaryAlgorithms(self.M, )
+        while(self.tree.)
 
 
 class NarySimiliarDependencyAlgorithms:
@@ -200,6 +200,7 @@ class NarySimiliarDependencyAlgorithms:
         self.P = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 1))
         self.Csum = self.C.sumVertex(0, -1)
         self.Psum = self.P.sumVertex(0, -1)
+"""
 
 class NaryAlgorithms:
     def __init__(self, M: int, table: TC.Table) -> None:

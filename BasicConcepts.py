@@ -15,7 +15,6 @@ def G(y: int, x: int, n: int) -> int:
     return math.floor(y / x) * n
 
 _Trn = TypeVar('Tr', object)
-
 class NaryTree(object):
     def __init__(self, node: dict(Iterable[_Trn]), value: object) -> None:
         self.node = node
