@@ -186,7 +186,7 @@ class Table:
     def tableGtransform(self, x: int, n: int) -> list:
         remainder = []
         for i in range(self.label.height):
-            gmod = BC.G(self.label.matrix[i][1], x, n)
+            gmod = lb.G(self.label.matrix[i][1], x, n)
             self.label.matrix[i][0] += gmod
             remainder.append(self.label.matrix[i][1] - gmod)
         return remainder

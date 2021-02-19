@@ -2,7 +2,7 @@ import TableClasses as TC
 #import localib as lb
 import math
 #import dataclasses as DC
-from numpy import { arange, sin }
+from numpy import arange
 import numpy
 from matplotlib import pyplot
 
