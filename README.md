@@ -16,7 +16,7 @@ The efficiency algorthims will also be implemented and available in C#, Javascri
 
 ### Extensions and Libraries
 
-Numpy, matplotlib, powershell
+Numpy, Matplotlib, Powershell
 
 ## Availability for other languages
 Table Efficiency algorithms have been implemented in [C#](https://github.com/Pomidorka1234/Table-Efficiency-CS), [JS/TS](https://github.com/Pomidorka1234/Table-Efficiency-JS-TS)
