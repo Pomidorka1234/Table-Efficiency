@@ -4,7 +4,9 @@
 
 ## Description
 
-Efficiency algorithms for tables
+This a theory code presentation on the ValueTB application based on Efficiency algorithms for tables and easy table management, using algorithms and data structures along with some models of computation, all coded in Python.
+
+Port for [ValueTB](https://github.com/Pomidorka1234/ValueTV) repository
 
 The efficiency algorthims will also be implemented and available in C#, Javascript and other open source programming languages...
 
