@@ -6,7 +6,7 @@
 
 This a theory code presentation on the ValueTB application based on Efficiency algorithms for tables and easy table management, using algorithms and data structures along with some models of computation, all coded in Python.
 
-Port for [ValueTB](https://github.com/Pomidorka1234/ValueTB) repository
+Port for [ValueTB](https://github.com/Pomid0rchik/ValueTB) repository
 
 The efficiency algorthims will also be implemented and available in C#, Javascript and other open source programming languages...
 
@@ -21,5 +21,5 @@ The efficiency algorthims will also be implemented and available in C#, Javascri
 Numpy, Matplotlib, Powershell
 
 ## Availability for other languages & services
-Table Efficiency algorithms have been implemented in [C#](https://github.com/Pomidorka1234/Table-Efficiency-CS), [JS/TS](https://github.com/Pomidorka1234/Table-Efficiency-JS-TS)
+Table Efficiency algorithms have been implemented in [C#](https://github.com/Pomid0rchik/Table-Algorithms-CS), [JS/TS](https://github.com/Pomid0rchik/Table-Algorithms-JS-TS)
 And will be implemented in the future in C++, Java and more...
