@@ -13,12 +13,16 @@ The efficiency algorthims will also be implemented and available in C#, Javascri
 ## Included extensions and Requirements
 
 ### Requirements
+Python: 3.9.1 or greater
+Ipython: 7.12.0 or higher
+Jupyter: 6.1.12 or greater
 
-### Platforms & Programming Languages
+### Software & Programming Languages
+VSC, Python, Jupyter
 
-### Extensions and Libraries
+### Recommended Extensions and Libraries
 
-Numpy, Matplotlib, Powershell
+Kernels & Frameworks: Powershell, pip, Numpy, Matplotlib, Jupyter, Python
 
 ## Availability for other languages & services
 Table Efficiency algorithms have been implemented in [C#](https://github.com/Pomid0rchik/Table-Algorithms-CS), [JS/TS](https://github.com/Pomid0rchik/Table-Algorithms-JS-TS)
