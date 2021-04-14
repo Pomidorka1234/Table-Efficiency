@@ -14,7 +14,9 @@ The efficiency algorthims will also be implemented and available in C#, Javascri
 
 ### Requirements
 Python: 3.9.1 or greater
+
 Ipython: 7.12.0 or higher
+
 Jupyter: 6.1.12 or greater
 
 ### Software & Programming Languages
