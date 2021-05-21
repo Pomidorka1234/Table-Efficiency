@@ -27,9 +27,6 @@ VSC, Python, Jupyter
 Kernels & Frameworks: Powershell, pip, Numpy, Matplotlib, Jupyter, Python
 
 ## Availability for other languages & services
-<<<<<<< HEAD
-Table Efficiency algorithms have been implemented in [C#](https://github.com/Pomidorka1234/Table-Efficiency-CS), [JS/TS](https://github.com/Pomidorka1234/Table-Efficiency-JS-TS), contributions are welcome
-=======
-Table Efficiency algorithms have been implemented in [C#](https://github.com/Pomid0rchik/Table-Algorithms-CS), [JS/TS](https://github.com/Pomid0rchik/Table-Algorithms-JS-TS)
->>>>>>> 208dcf730fe7fda468711cbb86408446080c0cbb
+Table Efficiency algorithms have been implemented in [C#](https://github.com/Pomid0rchik/Table-Algorithms-CS), [JS/TS](https://github.com/Pomid0rchik/Table-Algorithms-JS-TS), contributions are welcomed to help with availability in other languages.
+
 And will be implemented in the future in C++, Java and more...
