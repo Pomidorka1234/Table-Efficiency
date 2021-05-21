@@ -22,9 +22,9 @@ Jupyter: 6.1.12 or greater
 ### Software & Programming Languages
 VSC, Python, Jupyter
 
-### Recommended Extensions and Libraries
+### Extensions and Libraries
 
-Kernels & Frameworks: Powershell, pip, Numpy, Matplotlib, Jupyter, Python
+Kernels & Frameworks:pip, Numpy, Matplotlib, Jupyter, notebook
 
 ## Availability for other languages & services
 Table Efficiency algorithms are in the process of implement in [C#](https://github.com/Pomid0rchik/Table-Algorithms-CS), [JS/TS](https://github.com/Pomid0rchik/Table-Algorithms-JS-TS), contributions are welcomed to help with availability.
