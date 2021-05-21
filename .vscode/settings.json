@@ -1,5 +1,5 @@
 {
     "jupyter.jupyterServerType": "local",
-    "python.pythonPath": "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+    "python.pythonPath": "C:\\Users\\User\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
     "jupyter.experiments.optOutFrom": ["NativeNotebookEditor"]
 }

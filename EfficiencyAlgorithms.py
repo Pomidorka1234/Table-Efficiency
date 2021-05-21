@@ -222,3 +222,14 @@ class NaryDependencyAlgorithms:
         self.P = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 1))
         self.Csum = self.C.sumVertex(0, -1)
         self.Psum = self.P.sumVertex(0, -1)
+
+class TrinaryAlgortihms:
+    def __init__(self, M: int, table: TC.Table) -> None:
+        self.table = table
+        self.M = M
+        self.C = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 0))
+        self.P = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 1))
+        self.T = TC.Matrix(self.table.label.height, 1, self.table.label.getVertex(-1, 2))
+
+    def gradientVector(self):
+
